@@ -1,0 +1,19 @@
+{
+  "id": 1001,
+  "category": {
+    "id": 10,
+    "name": "Dogs"
+  },
+  "name": "Buddy",
+  "photoUrls": [
+    "https://images.unsplash.com/photo-1558788353-f76d92427f16"
+  ],
+  "tags": [
+    {
+      "id": 101,
+      "name": "playful"
+    }
+  ],
+  "status": "available"
+}
+

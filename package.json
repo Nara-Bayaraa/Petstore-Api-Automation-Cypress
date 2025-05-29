@@ -1,0 +1,35 @@
+{
+  "name": "petstore-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress/issues"
+  },
+  "homepage": "https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress#readme",
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.3.0",
+    "@faker-js/faker": "^9.8.0",
+    "cypress": "^14.4.0",
+    "cypress-multi-reporters": "^2.0.5",
+    "cypress-parallel": "^0.15.0",
+    "cypress-plugin-api": "^2.11.2",
+    "cypress-real-events": "^1.14.0",
+    "cypress-wait-until": "^3.0.2",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.5.0",
+    "marge": "^1.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
