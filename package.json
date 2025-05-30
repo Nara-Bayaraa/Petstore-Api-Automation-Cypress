@@ -6,17 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress/issues"
-  },
-  "homepage": "https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress#readme",
+
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.3.0",
     "@faker-js/faker": "^9.8.0",
