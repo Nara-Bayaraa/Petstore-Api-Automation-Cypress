@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": 7427,
+    "username": "firstUser",
+    "firstName": "Mara",
+    "lastName": "Sara",
+    "email": "firstUser@email.com",
+    "password": "12345",
+    "phone": "12345",
+    "userStatus": 1
+  },
+  {
+    "id": 7428,
+    "username": "secondUser",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "secondUser@gmail.com",
+    "password": "abcde",
+    "phone": "54321",
+    "userStatus": 1
+  },
+  {
+    "id": 7429,
+    "username": "thirdUser",
+    "firstName": "Jonh",
+    "lastName": "Doe",
+    "email": "thirdUser@gmail.com",
+    "password": "abcde",
+    "phone": "54321",
+    "userStatus": 1
+  }
+]

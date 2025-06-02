@@ -58,7 +58,7 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
    Create a `.env` file in the project root:
 
    ```env
-   API_URL=https://petstore.swagger.io/v2
+   API_URL=https://petstore3.swagger.io/api/v3
    ```
 
 ---
@@ -92,11 +92,8 @@ Petstore-Api/
 │   │   ├── pets/                        # Pet API test specs (CRUD, etc.)
 │   │   ├── store/                       # Store API test specs (orders, inventory)
 │   │   ├── users/                       # User API test specs (register, login, etc.)
-│   │   └── spec.cy.js                   # Example or shared spec file
 │   ├── fixtures/                        # Test data files (JSON payloads)
-│   │   └── new-pet.json                 # Example pet payload for tests
 │   └── support/                         # Cypress custom commands and helpers
-│       ├── page-objects/                # (Optional) Page objects for reusable selectors/methods
 │       ├── commands.js                  # Custom Cypress commands
 │       └── e2e.js                       # Common Cypress utilities/config
 ├── node_modules/                        # Project dependencies (auto-generated)

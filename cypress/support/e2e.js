@@ -17,7 +17,5 @@
 import './commands'
 import 'cypress-wait-until';
 import 'cypress-plugin-api';
-import 'cypress-xpath';
-import 'cypress-real-events';
-import '@4tw/cypress-drag-drop';
+
 

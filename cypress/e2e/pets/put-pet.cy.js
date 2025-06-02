@@ -1,12 +1,13 @@
 describe("Pet API - Update Pet", () => {
-  it("[PET-001] should update a pet by ID", () => {
+  
+  it("[PET-001] should update an existing pet by Id", () => {
     const updatedPet = {
       id: 1001, 
       name: "Max",
       status: "sold",
       category: { id: 1, name: "Dogs" },
       photoUrls: ["string"],
-      tags: [{ id: 1, name: "tag1" }],
+      tags: [{ id: 1, name: "playful" }],
     };
 
     cy.api({
