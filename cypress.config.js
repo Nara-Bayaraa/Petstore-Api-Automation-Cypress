@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = defineConfig({
   e2e: {
-   baseUrl: process.env.API_URL,
+   baseUrl: process.env.BASE_API_URL,
     setupNodeEvents(on, config) {},
    },
 

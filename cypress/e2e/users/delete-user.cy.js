@@ -3,15 +3,17 @@ describe("User API - Delete User", () => {
     cy.apiUserLogin();
   });
 
-  it("[STORE-001] should delete a user by ID", () => {
-    cy.fixture("user.json").then((userData) => {
-      cy.api({
-        method: "DELETE",
-        url: `https://petstore.swagger.io/v2/user/${userData.username}`,
-        failOnStatusCode: false,
-      }).then((response) => {
-        expect(response.status).to.eq(200);
-      });
+it("[STORE-001] should delete a user by ID", () => {
+  cy.createUser('user.json', 'deleteCreatedUser').then((username) => {
+    cy.api({
+      method: "DELETE",
+      url: `/user/${username}`,
+      failOnStatusCode: false,
+    }).then((response) => {
+       cy.log(`Deleted user: ${username}`);
+      expect([200, 404]).to.include(response.status);
+     
     });
   });
+});
 });

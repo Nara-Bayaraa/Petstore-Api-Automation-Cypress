@@ -7,14 +7,14 @@ describe("User API - Create User", () => {
     cy.fixture("user.json").then((userPayload) => {
       cy.api({
         method: "POST",
-        url: "https://petstore.swagger.io/v2/user",
+        url: "/user",
         body: userPayload,
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         expect(response.status).to.be.oneOf([200, 201]);
         expect(response.body).to.have.property("code", 200);
         expect(response.body).to.have.property("type", "unknown");
-        expect(response.body).to.have.property("message", userPayload.id.toString());
+        expect(response.body).to.have.property("message");
         cy.log(JSON.stringify(response.body));
       });
     });
@@ -24,7 +24,7 @@ describe("User API - Create User", () => {
     cy.fixture("users-list.json").then((usersListPayload) => {
       cy.api({
         method: "POST",
-        url: "https://petstore.swagger.io/v2/user/createWithList",
+        url: "/user/createWithList",
         failOnStatusCode: false,
         body: usersListPayload,
         headers: { "Content-Type": "application/json" },

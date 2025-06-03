@@ -1,8 +1,18 @@
 {
-  "id": 101,
-  "petId": 1001,
-  "quantity": 7,
-  "shipDate": "2025-05-31T22:09:53.491Z",
-  "status": "approved",
-  "complete": true
+  "createOrder": {
+    "id": 101,
+    "petId": 1001,
+    "quantity": 7,
+    "shipDate": "2025-05-31T22:09:53.491Z",
+    "status": "approved",
+    "complete": true
+  },
+
+  "deleteCreatedOrder": {
+    "petId": 1001,
+    "quantity": 7,
+    "shipDate": "2025-05-31T22:09:53.491Z",
+    "status": "approved",
+    "complete": true
+  }
 }

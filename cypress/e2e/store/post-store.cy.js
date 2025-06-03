@@ -5,7 +5,7 @@ describe("Store API - Create Order", () => {
       cy.api({
         method: "POST",
         url: "/store/order",
-        body: orderPayload,
+        body: orderPayload.createOrder,
         headers: {"Content-Type": "application/json" },
       }).then((response) => {
         expect(response.status).to.eq(200);

@@ -1,4 +1,5 @@
 {
+   "createPet": {
   "id": 1001,
   "category": {
     "id": 10,
@@ -7,18 +8,23 @@
   "name": "princesse",
   "photoUrls": ["string"],
   "tags": [
-    {
-      "id": 1,
-      "name": "white and black"
-    },
-    {
-      "id": 2,
-      "name": "green eyes"
-    },
-    {
-      "id": 3,
-      "name": "cute"
-    }
-  ],
+    {"id": 1, "name": "white and black" },
+    { "id": 2, "name": "green eyes"},
+    { "id": 3,"name": "cute"}],
   "status": "available"
+},
+
+  "deleteCreatedPet": {
+    "category": {
+      "id": 10,
+      "name": "Cats"
+    },
+    "name": "Funny",
+    "photoUrls": ["string"],
+    "tags": [
+      {"id": 1,"name": "blue and brown"  },
+      { "id": 2, "name": "green eyes"},
+      {"id": 3,  "name": "cute"} ],
+    "status": "available"
+  }
 }

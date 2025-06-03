@@ -58,7 +58,7 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
    Create a `.env` file in the project root:
 
    ```env
-   API_URL=https://petstore3.swagger.io/api/v3
+  BASE_API_URL=https://petstore.swagger.io/v2
    ```
 
 ---
