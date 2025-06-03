@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = defineConfig({
   e2e: {
-   baseUrl: process.env.BASE_API_URL,
+   baseUrl: "https://petstore.swagger.io/v2",
     setupNodeEvents(on, config) {},
    },
 

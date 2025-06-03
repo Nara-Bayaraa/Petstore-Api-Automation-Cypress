@@ -1,4 +1,4 @@
-name: Parallel API Domain Test Build
+name: Parallel API Test Build
 
 on:
   workflow_dispatch:
@@ -54,7 +54,7 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
-        
+
       - name: Install dependencies
         run: npm ci
 
