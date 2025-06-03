@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-03T13:28:40.529Z",
+    "end": "2025-06-03T13:28:40.637Z",
+    "duration": 108,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a46ca77b-3285-4a88-b1ee-8d5e51e36a0a",
+      "title": "",
+      "fullFile": "cypress/e2e/pets/put-pet.cy.js",
+      "file": "cypress/e2e/pets/put-pet.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "550bdf1f-d0fc-4fb0-970d-d560d9dda107",
+          "title": "Pet API - Update Pet",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "[PET-001] should update an existing pet by Id",
+              "fullTitle": "Pet API - Update Pet [PET-001] should update an existing pet by Id",
+              "timedOut": null,
+              "duration": 90,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updatedPet = {\n  id: 1001,\n  name: \"Max\",\n  status: \"sold\",\n  category: {\n    id: 1,\n    name: \"Dogs\"\n  },\n  photoUrls: [\"string\"],\n  tags: [{\n    id: 1,\n    name: \"playful\"\n  }]\n};\ncy.api({\n  method: \"PUT\",\n  url: \"/pet\",\n  body: updatedPet,\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property(\"id\", updatedPet.id);\n  expect(response.body).to.have.property(\"name\", \"Max\");\n  expect(response.body).to.have.property(\"status\", \"sold\");\n});",
+              "err": {},
+              "uuid": "873515ff-e535-4f08-a74d-24d79c8c8ac9",
+              "parentUUID": "550bdf1f-d0fc-4fb0-970d-d560d9dda107",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "873515ff-e535-4f08-a74d-24d79c8c8ac9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 90,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportDir": "reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
