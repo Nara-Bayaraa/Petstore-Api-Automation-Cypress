@@ -33,7 +33,7 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
 
 ## 🕒 Automated CI Schedule
 
-```
+```bash
  schedule:
     - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
 ```
