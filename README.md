@@ -33,6 +33,11 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
 
 ## 🕒 Automated CI Schedule
 
+```
+ schedule:
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+```
+
 - **Nightly runs:**  
   This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
 
@@ -70,11 +75,6 @@ All test results and reports are generated and can be accessed in the GitHub Act
 
    ```bash
    npm install
-   ```
-
-
-
-
    ```
 
 ---
