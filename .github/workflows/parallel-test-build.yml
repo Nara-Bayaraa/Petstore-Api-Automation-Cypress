@@ -17,10 +17,14 @@ jobs:
         uses: actions/checkout@v4.2.0
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
-
+      - name: Install dependencies
+        run: npm ci
+      - name: Clean reports folder
+        run: rm -rf reports
+      - name: Recreate reports folder
+        run: mkdir -p reports/mochawesome
       - name: Run Pet Tests
         run: npx cypress run --spec "cypress/e2e/pets/**/*.cy.js"
-
       - name: Upload Pets Report
         uses: actions/upload-artifact@v4
         with:
@@ -32,16 +36,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.0
-
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
-
       - name: Install dependencies
         run: npm ci
-
+      - name: Clean reports folder
+        run: rm -rf reports
+      - name: Recreate reports folder
+        run: mkdir -p reports/mochawesome
       - name: Run Store Tests
         run: npx cypress run --spec "cypress/e2e/store/**/*.cy.js"
-
       - name: Upload Store Report
         uses: actions/upload-artifact@v4
         with:
@@ -53,16 +57,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.0
-
       - name: Cypress run
         uses: cypress-io/github-action@v6.6.1
-
       - name: Install dependencies
         run: npm ci
-
+      
       - name: Run Users Tests
         run: npx cypress run --spec "cypress/e2e/users/**/*.cy.js"
-
       - name: Upload Users Report
         uses: actions/upload-artifact@v4
         with:

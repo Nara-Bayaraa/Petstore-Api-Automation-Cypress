@@ -2,6 +2,8 @@
 
 # 🐾 🐶 Petstore API – Cypress Automation Project
 
+---
+
 ## 🖥️ Project Description
 
 The **Petstore API Automation Project** is a Cypress-based testing suite designed to ensure the reliability and quality of the [Swagger Petstore API](https://petstore.swagger.io/).
@@ -14,7 +16,7 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
 ## ⚙️ Features
 
 * **Cypress API Testing:**
-  Automated validation of core Petstore API endpoints (CRUD for pets, inventory, users, etc.).
+  Automated validation of core Petstore API endpoints (CRUD for pets, store, users, etc.).
 * **Reusable Fixtures:**
   Centralized test data management in JSON files.
 * **Environment Variable Support:**
@@ -26,7 +28,23 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
 * **CI/CD Ready:**
   Example GitHub Actions workflow for automated test runs.
 
+
 ---
+
+## 🕒 Automated CI Schedule
+
+- **Nightly runs:**  
+  This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
+
+- **Configuration:**  
+  The schedule is managed using this [cron expression](https://crontab.guru/#0_11_*_*_*):
+
+- **Purpose:**  
+Ensures API health and test coverage are validated every day without manual intervention.  
+All test results and reports are generated and can be accessed in the GitHub Actions workflow logs and artifacts.
+
+---
+
 
 ## 🛠️ Tech Stack
 
@@ -149,31 +167,78 @@ Petstore-Api/
 **GitHub Actions** example for CI (parallel run):
 
 ```yaml
+name: Parallel API Test Build
+
+on:
+  schedule:
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+  workflow_dispatch:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+  push:
+    branches: [main]
+
 jobs:
-  cypress-parallel-e2e:
+  Pets-Test:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4.2.0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-
-      - name: Cache npm dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.6.1
       - name: Install dependencies
         run: npm ci
+      - name: Clean reports folder
+        run: rm -rf reports
+      - name: Recreate reports folder
+        run: mkdir -p reports/mochawesome
+      - name: Run Pet Tests
+        run: npx cypress run --spec "cypress/e2e/pets/**/*.cy.js"
+      - name: Upload Pets Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pets-report
+          path: reports/
 
-      - name: Run Cypress E2E tests in parallel
-        run: npm run cy:parallel
+  Store-Test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.0
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.6.1
+      - name: Install dependencies
+        run: npm ci
+      - name: Clean reports folder
+        run: rm -rf reports
+      - name: Recreate reports folder
+        run: mkdir -p reports/mochawesome
+      - name: Run Store Tests
+        run: npx cypress run --spec "cypress/e2e/store/**/*.cy.js"
+      - name: Upload Store Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: store-report
+          path: reports/
+
+  Users-Test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.0
+      - name: Cypress run
+        uses: cypress-io/github-action@v6.6.1
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run Users Tests
+        run: npx cypress run --spec "cypress/e2e/users/**/*.cy.js"
+      - name: Upload Users Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: users-report
+          path: reports/
+
 ```
 
 ---
@@ -186,7 +251,7 @@ MIT License
 
 ## 📝 Future Enhancements
 
-* Expand test coverage (edge cases, user flows)
+* Implement API response schema validation
 * Add negative and stress test scenarios
 
 ---
