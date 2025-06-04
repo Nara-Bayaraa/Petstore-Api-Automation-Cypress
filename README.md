@@ -59,21 +59,20 @@ All test results and reports are generated and can be accessed in the GitHub Act
 
 ## 🔧 Installation
 
-1. ** Clone the repository:**
+1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/Nara-Bayaraa/Petstore-Api-Automation-Cypress.git
    cd Petstore-Api
    ```
 
-2. ** Install dependencies:**
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. ** Configure environment variables:**
-   Create a `.env` file in the project root:
+
 
 
    ```
