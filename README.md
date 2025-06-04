@@ -4,7 +4,7 @@
 
 ---
 
-## 🖥️ Project Description
+##  🖥️ Project Description
 
 The **Petstore API Automation Project** is a Cypress-based testing suite designed to ensure the reliability and quality of the [Swagger Petstore API](https://petstore.swagger.io/).
 It demonstrates skills in **backend (API) testing** using Cypress and JavaScript, following modern best practices for structure, test data management, and reporting.
