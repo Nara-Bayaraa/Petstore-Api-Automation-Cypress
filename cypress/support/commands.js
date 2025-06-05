@@ -1,17 +1,16 @@
 
-Cypress.Commands.add('apiUserLogin', (fixtureFile = 'user.json', resourceKey = 'userCredential') => {
-  cy.fixture(fixtureFile).then((userData) => {
-    cy.api({
+Cypress.Commands.add('loginUser', (fixtureFile = 'user.json', resourceKey = 'userCredential') => {
+ cy.fixture(fixtureFile).then((userData) => {
+    return cy.api({
       method: "GET",
-      url: `/user/login?username=${userData.username}&password=${userData.password}`,
+      url: `/user/login?username=${userData[resourceKey].username}&password=${userData[resourceKey].password}`,
       headers: { "accept": "application/json" }
     }).then((response) => {
       expect(response.status).to.eq(200);
-     
+     return cy.wrap(response.body); 
     });
-    });
-    });
-
+  });
+});
 
 
 Cypress.Commands.add('createResource', (fixtureFile, resourceKey, url) => {
@@ -30,26 +29,19 @@ Cypress.Commands.add('createResource', (fixtureFile, resourceKey, url) => {
   });
 });
 
-Cypress.Commands.add('createUser', (fixtureFile = 'user.json', resourceKey = 'createUser') => {
-  return cy.fixture(fixtureFile).then((payload) => {
-    const username = `user${Date.now()}`;
 
-    const user = {
-      ...payload[resourceKey],
-      id: Date.now(),
-      username, // use random username
-    };
+ Cypress.Commands.add('createUser', (fixtureFile = 'user.json', resourceKey = 'createUser') => {
+  return cy.fixture(fixtureFile).then((fixtureData) => {
+    const userData = fixtureData[resourceKey];
     return cy.api({
       method: "POST",
       url: "/user",
-      body: user,
+      body: userData,
       headers: { "Content-Type": "application/json" },
     }).then((response) => {
-      cy.log(JSON.stringify(response.body));
-      expect([200, 201]).to.include(response.status);
-      cy.wrap(response.body.username);
+      expect(response.status).to.be.oneOf([200, 201]);
+      return cy.wrap(userData);
     });
   });
 });
-
 

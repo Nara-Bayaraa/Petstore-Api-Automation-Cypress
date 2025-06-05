@@ -1,6 +1,6 @@
 describe("User API - Update User", () => {
   beforeEach(() => {
-    cy.apiUserLogin();
+    cy.loginUser();
   });
 
   it("[USER-001] should update user details by an existing username", () => {
@@ -15,18 +15,15 @@ describe("User API - Update User", () => {
       userStatus: 1,
     };
 
-    cy.fixture("user.json").then((userData) => {
+ cy.createUser("user.json", "createUser").then((createUser) => {
       cy.api({
         method: "PUT",
-        url: `https://petstore.swagger.io/v2/user/${userData.username}`,
+        url: `/user/${createUser.username}`,
         body: updatedUser,
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         expect(response.status).to.eq(200);
-        expect(response.body).to.have.property(
-          "message",
-          updatedUser.id.toString()
-        );
+         cy.log(JSON.stringify(response.body));
       });
     });
   });

@@ -1,9 +1,9 @@
 describe("User API - Create User", () => {
-  beforeEach(() => {
-    cy.apiUserLogin();
+  beforeEach(function () {
+    cy.loginUser();
   });
 
-  it("[USER-001] should create a user", () => {
+  it("[USER-001] should create a user", function () {
     cy.fixture("user.json").then((userPayload) => {
       cy.api({
         method: "POST",
@@ -20,7 +20,7 @@ describe("User API - Create User", () => {
     });
   });
 
-  it("[USER-002] should create multiple users", () => {
+  it("[USER-002] should create multiple users", function (){
     cy.fixture("users-list.json").then((usersListPayload) => {
       cy.api({
         method: "POST",

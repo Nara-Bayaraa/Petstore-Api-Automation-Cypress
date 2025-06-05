@@ -14,7 +14,7 @@
   "status": "available"
 },
 
-  "deleteCreatedPet": {
+  "pet": {
     "category": {
       "id": 10,
       "name": "Cats"

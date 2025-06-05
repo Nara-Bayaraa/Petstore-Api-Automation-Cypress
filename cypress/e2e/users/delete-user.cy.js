@@ -1,16 +1,16 @@
 describe("User API - Delete User", () => {
   beforeEach(() => {
-    cy.apiUserLogin();
+    cy.loginUser();
   });
 
-it("[STORE-001] should delete a user by ID", () => {
-  cy.createUser('user.json', 'deleteCreatedUser').then((username) => {
+it("[USER-001] should delete a user by username", () => {
+  cy.createUser('user.json', 'user').then((user) => {
     cy.api({
       method: "DELETE",
-      url: `/user/${username}`,
+      url: `/user/${user.username}`,
       failOnStatusCode: false,
     }).then((response) => {
-       cy.log(`Deleted user: ${username}`);
+       cy.log(`Deleted user: ${user.username}`);
       expect([200, 404]).to.include(response.status);
      
     });
