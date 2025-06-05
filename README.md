@@ -4,7 +4,7 @@
 
 ---
 
-## 🖥️ Project Description
+##  🖥️ Project Description
 
 The **Petstore API Automation Project** is a Cypress-based testing suite designed to ensure the reliability and quality of the [Swagger Petstore API](https://petstore.swagger.io/).
 It demonstrates skills in **backend (API) testing** using Cypress and JavaScript, following modern best practices for structure, test data management, and reporting.
@@ -32,6 +32,11 @@ All API tests are modular and use **fixtures** for clean, reusable data. The pro
 ---
 
 ## 🕒 Automated CI Schedule
+
+```bash
+ schedule:
+    - cron: '0 11 * * *'   #run every day at  5:00 AM Chicago time (CST)
+```
 
 - **Nightly runs:**  
   This project’s test suite is **automatically triggered every day at 5:00 AM Chicago time (CST)** via a scheduled GitHub Actions workflow.
@@ -70,13 +75,6 @@ All test results and reports are generated and can be accessed in the GitHub Act
 
    ```bash
    npm install
-   ```
-
-3. **Configure environment variables:**
-   Create a `.env` file in the project root:
-
-   ```env
-  BASE_API_URL=https://petstore.swagger.io/v2
    ```
 
 ---
@@ -256,5 +254,5 @@ MIT License
 
 ---
 
-Happy testing! 🚀
+## Happy testing! 🚀
 
