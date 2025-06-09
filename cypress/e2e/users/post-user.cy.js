@@ -1,14 +1,16 @@
 describe("User API - Create User", () => {
+  let createUser;
   beforeEach(function () {
     cy.loginUser();
   });
 
-  it("[USER-001] should create a user", function () {
+  it("[USER-001] should create a user", ()=> {
     cy.fixture("user.json").then((userPayload) => {
+      createUser = userPayload.createUser;
       cy.api({
         method: "POST",
         url: "/user",
-        body: userPayload,
+        body: createUser,
         headers: { "Content-Type": "application/json" },
       }).then((response) => {
         expect(response.status).to.be.oneOf([200, 201]);

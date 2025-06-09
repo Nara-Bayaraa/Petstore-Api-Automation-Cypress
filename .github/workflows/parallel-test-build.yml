@@ -1,4 +1,4 @@
-name: Parallel API Test Build
+name: Petstore Parallel API Test Build
 
 on:
   schedule:

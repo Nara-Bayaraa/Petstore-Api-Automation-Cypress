@@ -1,11 +1,13 @@
-describe("User API - Get User Details, Login and Logout ", function () {
-  beforeEach(function () {
+describe("User API - Get User Details, Login and Logout ", ()=> {
+  let userCredential;
+
+  beforeEach(()=> {
     cy.fixture("user.json").then((data) => {
-      this.userCredential = data.userCredential;
+      userCredential = data.userCredential;
     });
   });
 
-  it("[USER-001] should create and get user by username", function () {
+  it("[USER-001] should create and get user by username", ()=> {
     cy.createUser("user.json", "createUser").then((createUser) => {
       cy.api({
         method: "GET",
@@ -18,10 +20,10 @@ describe("User API - Get User Details, Login and Logout ", function () {
     });
   });
 
-  it("[USER-002] should login user into the system", function () {
+  it("[USER-002] should login user into the system", ()=> {
     cy.api({
       method: "GET",
-      url: `/user/login?username=${this.userCredential.username}&password=${this.userCredential.password}`,
+      url: `/user/login?username=${userCredential.username}&password=${userCredential.password}`,
       headers: { accept: "application/json" },
     }).then((response) => {
       expect(response.status).to.eq(200);
