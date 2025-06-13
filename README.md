@@ -162,7 +162,10 @@ Petstore-Api/
 
 ## 🤖 Continuous Integration
 
-**GitHub Actions** example for CI (parallel run):
+**GitHub Actions** example for CI (parallel run)
+
+<details>
+<summary>Click to expand sample workflow</summary>
 
 ```yaml
 name: Parallel API Test Build
@@ -238,6 +241,8 @@ jobs:
           path: reports/
 
 ```
+
+</details>
 
 ---
 
